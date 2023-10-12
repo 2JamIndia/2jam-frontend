@@ -1,0 +1,431 @@
+// interface
+*
+	margin: 0
+	padding: 0
+	box-sizing: border-box
+
+body
+	position: relative
+	overflow-x: hidden
+	overflow-y: scroll
+
+	font-size: 18px
+
+	+Helvetica
+
+	// scrollBar
+	&::-webkit-scrollbar
+		width: 15px
+
+	&::-webkit-scrollbar-track
+		background-color: transparent
+
+	&::-webkit-scrollbar-thumb
+		background-color: $borderGray
+		border-radius: 100px
+		border: 5px solid $white
+
+// elements
+h1, h2, h3, h4, h5, h6
+	font-weight: 600
+
+a
+	text-decoration: none
+	color: $black
+
+p
+	line-height: 1.5em
+
+img
+	user-select: none
+	pointer-events: none
+
+// wrapper
+.wrapper
+	display: flex
+	flex-direction: column
+
+	min-height: 100vh
+
+// container
+.container
+	position: relative
+
+	width: 95%
+	max-width: 1500px
+
+	margin: 0 auto
+
+// buttons
+.btn
+	width: 100%
+
+	display: inline-flex
+	align-items: center
+	justify-content: center
+
+	cursor: pointer
+
+	border: none
+	background-color: $black
+	color: $white
+
+	font-size: 18px
+
+	padding: 20px 40px
+
+	border-radius: 100px
+
+	+Helvetica
+	+transition
+
+	&:hover
+		background-color: $hoverBlack
+
+	&:active
+		background-color: $clickBlack
+
+	&.gray
+		background-color: $backgroundGray
+		color: $black
+
+		&:hover
+			background-color: $borderGray
+
+		&:active
+			background-color: #d9d9d9
+
+	&.small
+		padding: 18px 36px
+
+	&.disabled
+		pointer-events: none
+		user-select: none
+
+		opacity: 0.8
+
+	& > .loader
+		margin-left: 10px
+
+		width: 15px
+		height: 15px
+		border: 2px solid #FFF
+		border-bottom-color: transparent
+		border-radius: 50%
+		display: inline-block
+		box-sizing: border-box
+		animation: rotation 1s linear infinite
+
+.btn-transparent
+	cursor: pointer
+
+	width: 100%
+	display: block
+
+	border: none
+	background-color: transparent
+
+	color: $black
+
+	font-size: 21px
+
+	+Helvetica
+	+transition
+
+	&:hover
+		color: $gray
+
+		& > svg
+			fill: $gray
+
+	& > svg
+		fill: $black
+		+transition
+
+	& > .loader
+		margin-left: 10px
+
+		width: 15px
+		height: 15px
+		border: 2px solid $black
+		border-bottom-color: transparent
+		border-radius: 50%
+		display: inline-block
+		box-sizing: border-box
+		animation: rotation 1s linear infinite
+
+@keyframes rotation
+	0%
+		transform: rotate(0deg)
+
+	100%
+		transform: rotate(360deg)
+
+// input
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active
+	-webkit-box-shadow: 0 0 0 30px $backgroundGray inset !important
+
+.input
+	position: relative
+
+	width: 100%
+
+	background-color: $backgroundGray
+	border-radius: 20px
+
+	overflow: hidden
+
+	text-align: left
+
+	+transition
+
+	&:hover
+		background-color: #f1f1f1
+
+	&.error, &.error &-state
+		background-color: $lightRedColor
+
+	&.error &__label
+		color: $red
+
+	&.active &__label
+		font-size: 12px
+
+		top: 13px
+		transform: translateY(0)
+
+	&__label
+		position: absolute
+
+		font-size: 17px
+		color: $gray
+
+		pointer-events: none
+
+		top: 50%
+		transform: translateY(-50%)
+
+		left: 18px
+
+		+transition
+
+	&__field
+		width: calc( 100% - 50px )
+
+		padding: 33px 15px 13px 18px
+
+		background-color: transparent
+		border: none
+
+		font-size: 17px
+
+		outline: none
+
+		+Helvetica
+
+	&__error
+		display: block
+		margin-top: 5px
+		text-align: left
+
+		color: $red
+		font-size: 14px
+		+transition
+
+	&-state
+		cursor: pointer
+
+		top: 20px
+		right: 20px
+
+		background-color: $backgroundGray
+
+		position: absolute
+
+		+transition
+
+		&__text
+			user-select: none
+			font-size: 14px
+			color: $gray
+
+// textarea
+.textarea
+	position: relative
+
+	width: 100%
+
+	background-color: $backgroundGray
+
+	overflow: hidden
+
+	text-align: left
+
+	+borderRadius
+	+transition
+
+	&:hover
+		background-color: #f1f1f1
+
+	&.active &__label
+		opacity: 0
+
+	&.active &__field
+		padding: 20px 15px
+
+	&__label
+		position: absolute
+
+		width: 85%
+
+		font-size: 17px
+		color: $gray
+
+		pointer-events: none
+
+		top: 20px
+		left: 20px
+
+		+transition
+
+	&__field
+		width: 100%
+		height: 220px
+
+		padding: 33px 15px 13px 18px
+
+		background-color: transparent
+		border: none
+
+		font-size: 17px
+
+		resize: none
+		outline: none
+
+		+Helvetica
+
+// video-player
+.video-player
+	position: relative
+	width: 100%
+
+	&:hover &-content-quality
+		opacity: 1
+		z-index: 2
+
+	&:hover &-content-quality-select
+		opacity: 1
+		z-index: 2
+
+	&-content
+		& video
+			overflow: hidden
+
+			+borderRadius
+			+transition
+
+		&-quality
+			opacity: 0
+
+			cursor: pointer
+
+			background-color: $backgroundGray
+			padding: 5px 10px
+
+			z-index: -1
+
+			position: absolute
+
+			top: 15px
+			right: 15px
+
+			+borderRadius
+			+transition
+
+			&:active
+				transform: scale(0.90)
+
+			&__title
+				display: flex
+				align-items: center
+
+				user-select: none
+
+				& span
+					font-size: 13px
+					margin-left: 5px
+
+					background-color: $mainColor
+					color: $white
+					padding: 0 5px
+
+					border-radius: 100px
+
+		&-quality-select
+			opacity: 0
+
+			cursor: pointer
+
+			background-color: $backgroundGray
+			padding: 5px 15px
+
+			z-index: -1
+
+			position: absolute
+
+			top: 60px
+			right: 15px
+
+			width: 150px
+
+			border-radius: 30px
+
+			+openPopup
+			+transition
+
+			&.close
+				+closePopup
+
+			&-item
+				cursor: pointer
+				padding: 5px 0
+
+				&:hover &__title
+					color: $gray
+
+				&__title
+					user-select: none
+					+transition
+
+					& span
+						font-size: 13px
+						margin-left: 5px
+
+						background-color: $mainColor
+						color: $white
+						padding: 0 5px
+
+						border-radius: 100px
+
+/* MEDIA */
+@media screen and (max-width: 600px)
+	// btn 
+	.btn
+		font-size: 16px
+
+		padding: 15px 30px
+
+		&.small
+			padding: 15px 20px
+
+	.btn-transparent
+		font-size: 16px
+
+	// video-player
+	.video-player
+		&-content
+			& video
+				border-radius: 25px

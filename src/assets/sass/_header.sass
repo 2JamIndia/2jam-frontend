@@ -1,0 +1,47 @@
+// header
+.header
+	margin: 35px 0
+
+	&-wrapper
+		display: flex
+		justify-content: space-between
+		align-items: center
+
+	&-logo
+		&__image
+			width: 120px
+
+	&-nav
+		display: flex
+		align-items: center
+
+		&__link
+			width: auto
+
+			margin-right: 25px
+
+			&:last-child
+				margin-right: 0
+
+			& > svg
+				margin-left: 5px
+
+				width: 15px
+				height: 15px
+
+				transform: rotate(-45deg)
+
+@media screen and (max-width: 600px)
+	.header
+		margin: 15px 0
+
+		&-logo
+			&__image
+				width: 100px
+
+		&-nav
+			// flex-direction: column
+			// justify-content: center
+
+			&__link
+				margin-right: 10px

@@ -1,0 +1,53 @@
+// mixin
+
+// fonts
+@mixin Helvetica
+	font-family: "Helvetica Now Display", sans-serif
+
+@mixin PTSerif
+	font-family: "PT Serif", serif
+	font-weight: 400
+
+// animate
+@mixin transition
+	transition: all .3s
+
+@mixin transformScaleClick
+	transform: scale(1.02)
+
+@mixin transformScaleHover
+	transform: scale(1.01)
+
+@mixin open
+	animation: open .2s
+
+@mixin close
+	animation: close .2s
+
+@mixin open04s
+	animation: open .4s
+
+@mixin close04s
+	animation: close .4s
+
+@mixin openPopup
+	animation: openPopup .2s
+
+@mixin openPopup04s
+	animation: openPopup .4s
+
+@mixin closePopup
+	animation: closePopup .2s
+
+@mixin closePopup04s
+	animation: closePopup .4s
+
+// background
+@mixin backgroundSetting
+	background-repeat: no-repeat
+	background-size: cover
+	background-position: center center
+
+// interface
+@mixin borderRadius
+	border-radius: 40px

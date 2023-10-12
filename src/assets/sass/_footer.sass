@@ -1,0 +1,47 @@
+// footer
+.footer
+	&-wrapper
+		border-top: 1px solid $borderGray
+		padding: 25px 0 50px 0
+
+	&-block
+		&-email
+			width: 250px
+
+			cursor: pointer
+
+			margin-bottom: 25px
+
+			&:last-child
+				margin-bottom: 0
+
+			&__subtitle
+				font-size: 16px
+
+			&__email
+				display: inline-flex
+				align-items: center
+
+				height: 33.5px
+
+				font-size: 21px
+				color: $mainColor
+
+				& > span
+					margin-left: 10px
+
+					padding: 0 7px 2px 7px
+					background-color: $backgroundGray
+
+					font-size: 12px
+					color: $black
+
+					animation: openText .4s
+
+					+borderRadius
+
+					&.close
+						animation: closeText .4s
+
+					& > svg
+						margin-left: 5px

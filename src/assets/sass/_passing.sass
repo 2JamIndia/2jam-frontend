@@ -1,0 +1,713 @@
+// passing
+.passing
+	position: relative
+
+	padding: 50px 0
+
+	+open
+
+	&-navigation
+		margin-bottom: 50px
+
+		&-text
+			width: 100%
+
+			display: flex
+			flex-direction: column
+			align-items: center
+
+			text-align: center
+
+			&__subtitle
+				font-size: 24px
+				margin-bottom: 25px
+
+			&-title
+				display: flex
+				align-items: center
+
+				&__title
+					font-size: 54px
+
+				&__btn
+					margin-left: 35px
+
+					cursor: pointer
+					border: none
+					background-color: $backgroundGray
+					color: $black
+					font-size: 18px
+
+					padding: 15px 20px
+
+					border-radius: 100px
+
+					+Helvetica
+
+					& > svg
+						margin-left: 10px
+						width: 15px
+
+		&-lessons
+			&-list-wrapper
+				position: fixed
+				z-index: 20
+
+				display: flex
+				justify-content: flex-end
+				align-items: flex-start
+
+				width: 100%
+				height: 100vh
+
+				background-color: $blackTransparency
+
+				top: 0
+				left: 0
+
+				opacity: 0
+				visibility: hidden
+				pointer-events: none
+
+				+transition
+
+				&.active
+					opacity: 1
+					visibility: visible
+					pointer-events: auto
+
+			&-list
+				height: 100vh
+				width: 550px
+
+				overflow-x: auto
+
+				background-color: $white
+
+				margin-right: -550px
+
+				+transition
+
+				&.active
+					margin-right: 0
+
+				// scrollBar
+				&::-webkit-scrollbar
+					width: 5px
+
+				&::-webkit-scrollbar-track
+					background-color: transparent
+
+				&::-webkit-scrollbar-thumb
+					background-color: $backgroundGray
+					border-radius: 100px
+
+				&__close
+					cursor: pointer
+
+					display: flex
+					justify-content: center
+					align-items: center
+
+					width: 40px
+					height: 40px
+
+					margin-top: 15px
+					margin-right: 15px
+
+					border-radius: 100%
+
+					border: none
+					background-color: $white
+
+				&-item
+					cursor: pointer
+
+					display: flex
+
+					padding: 15px
+
+					+transition
+
+					&:last-child
+						margin-bottom: 0
+
+					&:hover
+						background-color: $backgroundGray
+
+					&.active
+						background-color: $backgroundGray
+
+					&-cover
+						padding: 3px 5px
+
+						width: 170px
+						min-width: 170px
+						height: 120px
+
+						border-radius: 20px
+
+						+backgroundSetting
+
+						&__info
+							padding: 4px 6px
+							font-size: 12px
+
+							background-color: $backgroundGray
+							border-radius: 100px
+
+							&.certificate
+								color: $mainColor
+
+					&-text
+						display: flex
+						flex-direction: column
+						justify-content: center
+
+						margin-left: 15px
+
+						&__subtitle
+							font-size: 16px
+							margin-bottom: 5px
+
+						&__title
+							width: 320px
+
+							overflow: hidden
+							text-overflow: ellipsis
+							white-space: nowrap
+
+							font-size: 21px
+
+	&-video-wrapper
+		display: flex
+		justify-content: center
+		align-items: center
+
+	&-video
+		width: 75%
+
+		position: relative
+
+		&__btn
+			cursor: pointer
+
+			display: flex
+			justify-content: center
+			align-items: center
+
+			background-color: $backgroundGray
+
+			width: 50px
+			height: 50px
+
+			border-radius: 100%
+
+			+transition
+
+			& > svg
+				stroke: $black
+				width: 20px
+				height: 20px
+
+				+transition
+
+			&:hover
+				background-color: $black
+
+				& > svg
+					stroke: $white
+
+			&.disabled
+				opacity: 0.3
+				pointer-events: none
+
+			&.prev
+				margin-right: 75px
+
+			&.next
+				margin-left: 75px
+
+	&-info
+		display: flex
+		flex-direction: column
+		align-items: center
+
+		text-align: center
+
+		&__description
+			margin-top: 35px
+
+			width: 50%
+			font-size: 28px
+
+		&-materials
+			margin-top: 50px
+			width: 45%
+
+			&__btn
+				display: block
+				width: 300px
+
+				position: fixed
+
+				z-index: 5
+
+				left: 50%
+				bottom: 25px
+
+				transform: translateX(-50%)
+
+				opacity: 0
+				pointer-events: none
+
+				+transition
+
+				&.visible
+					opacity: 1
+					pointer-events: auto
+
+				& > svg
+					margin-left: 10px
+					width: 18px
+
+			&__title
+				font-size: 36px
+				margin-bottom: 25px
+
+			&-item-wrapper
+				display: flex
+				justify-content: center
+
+				margin-bottom: 10px
+
+				&:last-child
+					margin-bottom: 0
+
+			&-item
+				width: 300px
+
+				cursor: pointer
+
+				display: flex
+				align-items: center
+				justify-content: center
+
+				padding: 15px 20px
+				background-color: $backgroundGray
+
+				will-change: transform
+
+				+borderRadius
+				+transition
+
+				&:hover
+					+transformScaleHover
+
+				&-icon
+					display: flex
+					align-items: center
+
+					& svg
+						fill: $mainColor
+
+				&__title
+					font-size: 21px
+					margin-left: 10px
+					color: $mainColor
+
+					overflow: hidden
+					text-overflow: ellipsis
+					white-space: nowrap
+
+				&__loader
+					margin-left: 10px
+
+					width: 17px
+					height: 17px
+					border: 2px solid $mainColor
+					border-bottom-color: transparent
+					border-radius: 50%
+					display: inline-block
+					box-sizing: border-box
+					animation: rotation 1s linear infinite
+
+	&-certificate
+		margin-top: 50px
+
+		display: flex
+		flex-direction: column
+		align-items: center
+
+		text-align: center
+
+		+openPopup04s
+
+		&__btn
+			display: block
+			width: 300px
+
+			position: fixed
+
+			z-index: 5
+
+			left: 50%
+			bottom: 25px
+
+			transform: translateX(-50%)
+
+			opacity: 0
+			pointer-events: none
+
+			+transition
+
+			&.visible
+				opacity: 1
+				pointer-events: auto
+
+			& > svg
+				margin-left: 10px
+				width: 18px
+
+		&-text
+			margin-bottom: 50px
+
+			&__title
+				font-size: 42px
+				margin-bottom: 25px
+
+			&__description
+				font-size: 24px
+
+		&-form
+			width: 45%
+
+			&-input
+				margin-bottom: 10px
+
+			&__btn
+				margin-top: 15px
+
+	&-feedback
+		margin-top: 50px
+
+		display: flex
+		flex-direction: column
+		align-items: center
+
+		text-align: center
+
+		+openPopup04s
+
+		&-text
+			margin-bottom: 50px
+
+			&__title
+				font-size: 42px
+				margin-bottom: 25px
+
+			&__description
+				font-size: 24px
+
+		&-form
+			width: 50%
+
+			&__title
+				font-size: 24px
+				margin-bottom: 25px
+
+			&-btn
+				display: flex
+				justify-content: space-between
+
+				margin-bottom: 25px
+
+				&__btn
+					width: 32%
+
+					&.active
+						background-color: $black
+						color: $white
+
+						&:hover
+							background-color: $black
+
+						&:active
+							background-color: $black
+
+			&-input
+				margin-bottom: 30px
+
+				+openPopup
+
+			&__subbtn
+				margin-top: 15px
+
+	&-certificate-success
+		margin: 50px 0
+
+		width: 100%
+
+		text-align: center
+
+		&-text
+			display: flex
+			align-items: center
+			justify-content: center
+
+			margin-bottom: 50px
+
+			&__title
+				font-size: 42px
+
+			&__btn
+				margin-left: 50px
+				width: 200px
+
+				& > svg
+					margin-left: 15px
+					width: 15px
+
+		&-image
+			width: 75%
+
+			&__image
+				width: 100%
+
+				+borderRadius
+				+open
+
+/* MEDIA */
+@media screen and (max-width: 1200px)
+	.passing
+		&-navigation
+			&-text
+				&-title
+					&__title
+						font-size: 42px
+
+		&-video
+			width: 90%
+
+			&__btn
+				z-index: 2
+
+				&.prev
+					margin-right: -25px
+
+				&.next
+					margin-left: -25px
+
+		&-certificate
+			&-form
+				width: 100%
+
+		&-feedback
+			&-form
+				width: 100%
+
+@media screen and (max-width: 900px)
+	.passing
+		&-navigation
+			margin-bottom: 25px
+
+			&-text
+				&__subtitle
+					margin-bottom: 15px
+
+				&-title
+					width: 100%
+					flex-direction: column
+
+					&__title
+						font-size: 32px
+						margin-bottom: 25px
+
+					&__btn
+						width: 100%
+						margin-left: 0
+
+			&-lessons
+				&-list-wrapper
+					flex-direction: column
+
+					justify-content: flex-end
+					align-items: flex-start
+
+				&-list
+					height: 90%
+					width: 100%
+
+					padding-bottom: 125px
+
+					&__close
+						margin-top: 0
+						margin-right: 0
+
+						margin-left: 15px
+						margin-bottom: 15px
+
+		&-info
+			&__description
+				margin-top: 25px
+
+				width: 100%
+				font-size: 24px
+
+			&-materials
+				margin-top: 25px
+
+				width: 100%
+
+				&__btn
+					display: none
+
+				&__title
+					font-size: 32px
+
+		&-certificate
+			&__btn
+				display: none
+
+			&-text
+				margin-bottom: 25px
+
+				&__title
+					font-size: 32px
+
+				&__description
+					font-size: 21px
+
+		&-feedback
+			&-text
+				margin-bottom: 25px
+
+				&__title
+					font-size: 32px
+
+				&__description
+					font-size: 21px
+
+		&-certificate-success
+			margin: 25px 0 0 0
+
+			&-text
+				flex-direction: column
+				margin-bottom: 25px
+
+				&__title
+					font-size: 32px
+					margin-bottom: 25px
+
+				&__btn
+					margin-left: 0
+					width: 100%
+
+			&-image
+				width: 100%
+
+				&__image
+					border-radius: 25px
+
+@media screen and (max-width: 600px)
+	.passing
+		padding: 25px 0
+
+		&-navigation
+			&-text
+				&__subtitle
+					font-size: 21px
+
+			&-lessons
+				&-list
+					&-item
+						padding: 10px
+
+						&-cover
+							height: 100px
+							width: 100px
+							min-width: 100px
+
+						&-text
+							&__title
+								width: 160px
+
+		&-video
+			width: 95%
+
+			&__btn
+				width: 35px
+				height: 35px
+
+				& > svg
+					width: 15px
+					height: 15px
+
+		&-info
+			&__description
+				font-size: 21px
+
+		&-feedback
+			&-form
+				&-btn
+					flex-direction: column
+
+					&__btn
+						width: 100%
+						margin-bottom: 10px
+
+						&:last-child
+							margin-bottom: 0
+
+@media screen and (max-width: 400px)
+	.passing
+		&-navigation
+			&-text
+				&__subtitle
+					font-size: 18px
+
+				&-title
+					&__title
+						font-size: 24px
+
+		&-info
+			&__description
+				width: 95%
+
+				font-size: 18px
+
+			&-materials
+				&__title
+					font-size: 24px
+
+		&-certificate
+			margin-top: 25px
+
+			&-text
+				margin-bottom: 25px
+
+				&__title
+					font-size: 24px
+					margin-bottom: 15px
+
+				&__description
+					font-size: 18px
+
+		&-feedback
+			&-text
+				&__title
+					font-size: 24px
+					margin-bottom: 15px
+
+				&__description
+					font-size: 18px
+
+			&-form
+				&__title
+					font-size: 24px
+					margin-bottom: 15px
+
+		&-certificate-success
+			&-text
+				&__title
+					font-size: 24px

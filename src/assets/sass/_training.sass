@@ -1,0 +1,139 @@
+// training
+.training
+	margin: 25px 0 75px 0
+
+	position: relative
+
+	&__subtitle
+		font-size: 36px
+		margin-bottom: 15px
+
+	&__title
+		font-size: 64px
+		margin-bottom: 50px
+
+	&-blocks-wrapper
+		display: flex
+
+	&-block
+		position: relative
+
+		width: 33%
+
+		will-change: transform
+
+		+transition
+
+		&:hover
+			+transformScaleHover
+
+		&:hover &-cover
+			&-placeholder
+				width: 100% !important
+
+			&-icon
+				opacity: 1
+				transform: translate(-50%, -50%) scale3d(1, 1, 1)
+
+		&:hover &__hidden
+			color: $white
+			background-color: $red
+
+		&-cover
+			position: relative
+			overflow: hidden
+			width: 100%
+			height: 500px
+
+			border-radius: 25px
+
+			&__passed
+				position: absolute
+
+				z-index: 2
+
+				top: 12px
+				left: 12px
+
+				padding: 4px 10px
+
+				display: inline-block
+				font-size: 14px
+				background-color: $backgroundGray
+
+				border-radius: 100px
+
+			&-placeholder
+				position: absolute
+
+				height: 100%
+
+				background-color: $blackTransparency
+
+				+transition
+
+			&-icon
+				position: absolute
+				left: 50%
+				top: 50%
+
+				will-change: transform
+
+				transform: translate(-50%, -50%) scale3d(.90, .90, .90)
+				opacity: 0
+
+				+transition
+
+			&-img
+				width: 100%
+				height: 100%
+
+				+backgroundSetting
+
+		&-text
+			margin-top: 10px
+			width: 90%
+
+			&__auth
+				font-size: 18px
+
+				margin-bottom: 5px
+
+			&__title
+				display: block
+				font-size: 24px
+
+				overflow: hidden
+				white-space: nowrap
+				text-overflow: ellipsis
+
+			&__subtitle
+				margin-top: 10px
+				font-size: 18px
+				color: $gray
+
+/* MEDIA */
+@media screen and (max-width: 1200px)
+	.training
+		margin: 50px 0
+
+		&-block
+			width: 100%
+
+@media screen and (max-width: 600px)
+	.training
+		&__subtitle
+			font-size: 24px
+			margin-bottom: 5px
+			
+		&__title
+			font-size: 42px
+			margin-bottom: 25px
+
+@media screen and (max-width: 400px)
+	.training
+		margin: 25px 0
+
+		&-block
+			&-cover
+				height: 350px
