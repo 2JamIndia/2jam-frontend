@@ -1,3 +1,6 @@
+// Payment
+export { default as Payment } from "./Payment"
+
 // Login
 export { default as Login } from "./Login"
 

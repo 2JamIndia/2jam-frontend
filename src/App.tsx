@@ -17,7 +17,7 @@ import { fetchUser } from "./redux/actions/user";
 
 import { Header, Footer } from "./components/";
 
-import { Home, Login, Training, PassingCourse, Policy, PublicOffer, RecoveryPassowrd, RecoveryPassowrdSuccess, RecoveryPassowrdConfirm } from "./pages/";
+import { Payment, Login, Training, PassingCourse, Policy, PublicOffer, RecoveryPassowrd, RecoveryPassowrdSuccess, RecoveryPassowrdConfirm } from "./pages/";
 
 declare global {
 	interface Window {
@@ -38,16 +38,16 @@ const App: React.FC = () => {
 	// const categories = useTypedSelector(({categories}) => categories.items);
 
 	React.useEffect(() => {
-		const accessToken = search.get("accessToken");
+		// const accessToken = search.get("accessToken");
 
-		if (accessToken) {
-			localStorage.setItem(
-				"accessToken",
-				accessToken
-			);
+		// if (accessToken) {
+		// 	localStorage.setItem(
+		// 		"accessToken",
+		// 		accessToken
+		// 	);
 
-			window.location.reload()
-		}
+		// 	// window.location.reload()
+		// }
 
 		//     let cords: any = ["scrollX", "scrollY"];
 
@@ -79,12 +79,14 @@ const App: React.FC = () => {
 	return (
 		<>
 			<div className="wrapper">
-				{pathname.indexOf("/go/login") !== -1 || pathname.indexOf("/go/password-recovery") !== -1 ? null : (
+				{pathname.indexOf("/go/login") !== -1 || pathname.indexOf("/go/password-recovery") !== -1 || pathname.indexOf("/payment") !== -1 ? null : (
 					<Header />
 				)}
 
 				<React.Suspense fallback={<></>}>
 					<Routes>
+						<Route path="/payment/:id" element={<Payment />} />
+
 						<Route path="/" element={<Navigate to={localStorage.getItem("accessToken") ? "/go/training" : "/go/login"} />} />
 
 						<Route path="/go/login" element={localStorage.getItem("accessToken") ? <Navigate to={"/go/training"} /> : <Login />} />
@@ -108,7 +110,7 @@ const App: React.FC = () => {
 					</Routes>
 				</React.Suspense>
 
-				{pathname.indexOf("/go/login") !== -1 || pathname.indexOf("/go/password-recovery") !== -1 ? null : (
+				{pathname.indexOf("/go/login") !== -1 || pathname.indexOf("/go/password-recovery") !== -1 || pathname.indexOf("/payment") !== -1 ? null : (
 					<Footer />
 				)}
 			</div>

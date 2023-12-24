@@ -17,7 +17,7 @@ const PassingMaterials: React.FC<PassingMaterialsProps> = ({
 	downloadFunc,
 }) => {
 	const { isDownloadingMaterial } = useTypedSelector(({ passing }) => passing)
-	
+
 	const [visibleButton, setVisibleButton] = React.useState(true);
 
 	React.useEffect(() => {
@@ -50,7 +50,7 @@ const PassingMaterials: React.FC<PassingMaterialsProps> = ({
 				duration={1000}
 			>
 				<button className={`btn gray passing-info-materials__btn ${visibleButton ? "visible" : ""}`}>
-				Materials
+					Materials
 
 					<svg viewBox="0 0 26 15" fill="none" xmlns="http://www.w3.org/2000/svg">
 						<path d="M24.3334 1.66663L12.6667 13.3333L1.00004 1.66663" stroke="black" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
